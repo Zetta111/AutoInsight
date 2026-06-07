@@ -65,4 +65,22 @@ public class VehicleService {
         if (v.getHorsepower() == null || v.getWeight() == null || v.getWeight() == 0) return null;
         return (double) v.getHorsepower() / v.getWeight() * 1000;
     }
+
+    // Returns how many dollars the buyer is paying per unit of horsepower
+    public Double costPerHp(Vehicle v) {
+        if (v.getMsrp() == null || v.getHorsepower() == null || v.getHorsepower() == 0) return null;
+        return v.getMsrp().doubleValue() / v.getHorsepower();
+    }
+
+    // Returns how many dollars the buyer is paying per lb-ft of torque
+    public Double costPerTorque(Vehicle v) {
+        if (v.getMsrp() == null || v.getTorque() == null || v.getTorque() == 0) return null;
+        return v.getMsrp().doubleValue() / v.getTorque();
+    }
+
+    // Returns how many dollars the buyer is paying per combined MPG point
+    public Double costPerCombinedMpg(Vehicle v) {
+        if (v.getMsrp() == null || v.getCombinedMpg() == null || v.getCombinedMpg() == 0) return null;
+        return v.getMsrp().doubleValue() / v.getCombinedMpg();
+    }
 }

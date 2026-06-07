@@ -32,6 +32,15 @@ public class Vehicle {
 
     private BigDecimal msrp;
 
+    @Column(name = "city_mpg")
+    private Integer cityMpg;
+
+    @Column(name = "highway_mpg")
+    private Integer highwayMpg;
+
+    @Column(name = "combined_mpg")
+    private Integer combinedMpg;
+
     // A vehicle can be linked to many users through user_vehicles.
     // Deleting a vehicle also deletes all its user_vehicle rows.
     @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -47,6 +56,9 @@ public class Vehicle {
     public Integer getTorque() { return torque; }
     public Integer getWeight() { return weight; }
     public BigDecimal getMsrp() { return msrp; }
+    public Integer getCityMpg() { return cityMpg; }
+    public Integer getHighwayMpg() { return highwayMpg; }
+    public Integer getCombinedMpg() { return combinedMpg; }
     public List<UserVehicle> getUserVehicles() { return userVehicles; }
 
     public void setId(Long id) { this.id = id; }
@@ -57,4 +69,7 @@ public class Vehicle {
     public void setTorque(Integer torque) { this.torque = torque; }
     public void setWeight(Integer weight) { this.weight = weight; }
     public void setMsrp(BigDecimal msrp) { this.msrp = msrp; }
+    public void setCityMpg(Integer cityMpg) { this.cityMpg = cityMpg; }
+    public void setHighwayMpg(Integer highwayMpg) { this.highwayMpg = highwayMpg; }
+    public void setCombinedMpg(Integer combinedMpg) { this.combinedMpg = combinedMpg; }
 }

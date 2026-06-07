@@ -13,4 +13,7 @@ public interface UserVehicleRepository extends JpaRepository<UserVehicle, Long> 
 
     // Returns all vehicles linked to a specific user — used to fetch a user's garage
     List<UserVehicle> findByUserId(Long userId);
+
+    // Checks whether a specific vehicle belongs to a specific user — used to validate ownership before comparison
+    boolean existsByUserIdAndVehicleId(Long userId, Long vehicleId);
 }
